@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<style>
+
+    body{background:mediumseagreen;
+
+    font-family: monospace;
+
+    text-align: center;
+
+    font-size: 1.5rem;
+
+    position: relative;
+
+}
+
+img {
+
+    padding: 10px;
+
+  }
+
+ 
+
+  img:hover {
+
+    transform: scale(1.4);
+
+    transition:all 1s;
+
+  }
+
+ 
+
+  .container {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    min-height: 400px;
+
+  }
+
+body{
+
+    background: #d0bcd5;
+
+    height: 100vh;
+
+}
+
+.register_page{
+
+    width: 460px;
+
+    margin: auto;
+
+}
+
+.form{
+
+    position: middle;
+
+    z-index: 1;
+
+    background: #a499b3;
+
+    max-width: 360px;
+
+    text-align: left;
+
+    margin: 0 auto 100px;
+
+    padding: 45px;
+
+}
+
+.form input{
+
+    font-family: 'Times New Roman', Times, serif;
+
+    outline: 1;
+
+    background: #f2f2f2;
+
+    width: 100%;
+
+    border: 0;
+
+    margin: 0 0 15px;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    font-size: 14px;
+
+}
+
+.submit{
+
+    font-size: 15px;
+
+    text-transform: uppercase;
+
+    font-weight: 600;
+
+    color:black;
+
+}
+
+select{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+}
+
+</style>
+
+    <meta charset='utf-8'>
+
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+
+    <title>Bone Mineral Density Prediction</title>
+
+    <h1>Bone Mineral Density Prediction</h1>
+
+ 
+
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <script src='main.js'></script>
+
+</head>
+
+<body>
+
+    <div class="register_page">
+
+        <div class="form">
+
+            <form action="{{url_for('predict')}}" method="POST">
+
+                Age: <input type="number" name='Age' placeholder="Enter your Age"><br><br>
+
+                <label for="gender">Gender:</label><br>
+
+                <select name="gender" id="gender">
+                <option value=2>Select</option>  
+                <option value=0>Female</option>
+                <option value=1>Male</option>
+                </select><br><br>
+ 
+                <label for="fracture">Fractures</label><br>
+
+                <select name="fracture" id="fracture">
+                <option value= 9>Select</option>  
+                <option value= 0>No Fractures</option>
+                <option value= 1>Fracture</option>
+                </select><br><br>
+
+                Weight: <input type="number" name='weight' placeholder="Enter your Weight:"><br>
+
+                Height: <input type="number" name='height' placeholder="Enter your Height:"><br>
+
+                <label for="medications">Medications taken:</label><br>
+
+                <select name="medications" id="medications">
+                <option value= 9>Select</option>
+                <option value= 0>No Medication</option>
+                <option value= 1>Glucocorticoids</option>
+                <option value= 2>Anticonvulsant</option>
+                </select><br><br>
+
+                <input type="submit" value="predict" class="submit">
+
+            </form>
+
+            {{data}}
+
+        </div>
+
+ 
+
+    </div>
+
+ 
+
+ 
+
+</body>
+
+ 
+
+</html>
